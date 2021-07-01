@@ -32,13 +32,34 @@ longestWord(sentence);
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  // SOLUTION 1
+  const newArr = [];
+  for (let i = 0; i < arr.length; i += len) {
+    const chunk = arr.slice(i, i + len);
+
+    newArr.push(chunk);
+  }
+
+  return newArr;
+
+  // SOLUTION 2
+  const newArr = [];
+  while (arr.length > 0) {
+    const chunk = arr.splice(0, len);
+    newArr.push(chunk);
+  }
+
+  return newArr;
+}
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+function flattenArray(arrays) {
+  return arrays.flat();
+}
 
 // CHALLENGE 4: ANAGRAM
 // Return true if anagram and false if not
